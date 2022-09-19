@@ -1,0 +1,13 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="genre_fragment_label">My Movie</string>
+    <string name="movie_fragment_label">Movie Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="view_all">View All</string>
+
+    <string name="hello_genre_fragment">Hello genre fragment</string>
+    <string name="hello_movie_fragment">Hello movie fragment. Arg: %1$s</string>
+    <string name="message_no_connection">No internet connection!. Please check your connection.</string>
+</resources>

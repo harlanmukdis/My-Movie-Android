@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.harlanmukdis.core.utils.DataBindingAdapters"/>
+        <import type="android.view.View"/>
+<!--        <variable-->
+<!--            name="sourceImg"-->
+<!--            type="com.harlanmukdis.core.data.source.remote.response.ReviewResponse" />-->
+        <variable
+            name="source"
+            type="com.harlanmukdis.core.domain.model.Review" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/_3sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_16sdp">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"/>
+            <!--bind:circleUrl="@{source.author_details.avatar_path}"-->
+
+            <TextView
+                android:id="@+id/initial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/avatar"
+                android:layout_alignTop="@+id/avatar"
+                android:layout_alignRight="@+id/avatar"
+                android:layout_alignBottom="@+id/avatar"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/avatar"
+                android:text="@{`A review by `+source.author}" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:paddingRight="@dimen/_8sdp"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:text="@{String.valueOf(source.author_details.rating)}"
+                android:background="@drawable/bg_rounded"
+                android:backgroundTint="@color/black"
+                android:drawableStart="@drawable/ic_rate"
+                android:layout_toRightOf="@+id/name"
+                android:gravity="center"
+                android:visibility="@{source.author_details.rating == null ? View.GONE : View.VISIBLE}"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:textSize="10sp"
+                android:layout_alignLeft="@+id/name"/>
+            <!--
+                bind:dateReviewFormat="@{source.updated_at}"-->
+
+            <com.harlanmukdis.mymovie.utils.LessMoreTextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/avatar"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
+                android:text="@{source.content}" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

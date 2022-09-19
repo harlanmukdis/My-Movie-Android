@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.harlanmukdis.core.utils.DataBindingAdapters"/>
+        <variable
+            name="source"
+            type="com.harlanmukdis.core.domain.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/_5sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
+                android:imgUrl="@{source.poster_path}"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/CircularDeterminateProgressBar"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:indeterminateOnly="false"
+                android:progress="60"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginTop="-20dp"
+                android:layout_alignParentEnd="true"
+                android:progressDrawable="@drawable/bg_circle"
+                android:rotation="-90"
+                android:background="@drawable/bg_circle_solid"
+                android:layout_below="@+id/thumbnail"/>
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_alignStart="@+id/progress_bar"
+                android:layout_alignTop="@id/progress_bar"
+                android:layout_alignEnd="@id/progress_bar"
+                android:layout_alignBottom="@id/progress_bar"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:text="@{``+source.vote_average}"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress_bar"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="2sp"
+                android:textSize="16sp"
+                android:text="@{source.title}"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_below="@id/title"
+                android:paddingBottom="@dimen/_5sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:lineSpacingExtra="8sp"
+                android:textSize="14sp"
+                android:dateFormat="@{source.release_date}"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

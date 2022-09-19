@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="3dp"
+            app:cardCornerRadius="@dimen/_3sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_16sdp">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/bg_circle_solid"
+                    android:backgroundTint="@color/gray"
+                    android:scaleType="fitXY"/>
+                <!--bind:circleUrl="@{source.author_details.avatar_path}"-->
+
+                <TextView
+                    android:id="@+id/initial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:layout_alignLeft="@+id/avatar"
+                    android:layout_alignRight="@+id/avatar"
+                    android:layout_alignTop="@+id/avatar"
+                    android:layout_alignBottom="@+id/avatar"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@+id/avatar"
+                    android:background="@color/gray"
+                    android:textColor="@color/gray"
+                    android:text="author by" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:paddingRight="@dimen/_8sdp"
+                    android:textColor="@color/gray"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:text="rating"
+                    android:background="@drawable/bg_rounded"
+                    android:backgroundTint="@color/gray"
+                    android:drawableStart="@drawable/ic_rate"
+                    android:drawableTint="@color/gray"
+                    android:layout_toRightOf="@+id/name"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name"
+                    android:textSize="10sp"
+                    android:layout_alignLeft="@+id/name"/>
+                <!--
+                    bind:dateReviewFormat="@{source.updated_at}"-->
+
+                <com.harlanmukdis.mymovie.utils.LessMoreTextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/gray"
+                    android:background="@color/gray"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#d8d8d8"
+            android:background="#d8d8d8"
+            android:lineSpacingExtra="8sp"
+            android:text="Placeholder"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvViewAll3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="#d8d8d8"
+            android:textColor="#d8d8d8"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/view_all"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <include
+            android:id="@+id/shimmer1"
+            layout="@layout/layout_shimmer_thumb_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvViewAll3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_8sdp"/>
+
+        <include
+            android:id="@+id/shimmer2"
+            layout="@layout/layout_shimmer_thumb_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            app:layout_constraintStart_toEndOf="@+id/shimmer1"
+            app:layout_constraintTop_toTopOf="@+id/shimmer1"/>
+
+        <include
+            android:id="@+id/shimmer3"
+            layout="@layout/layout_shimmer_thumb_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            app:layout_constraintStart_toEndOf="@+id/shimmer2"
+            app:layout_constraintTop_toTopOf="@+id/shimmer2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
